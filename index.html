@@ -3,49 +3,79 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>テスト：あなたのIPアドレス</title>
+  <title>サーバー紹介 - サバイバル生活鯖</title>
   <style>
-    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif; display:flex; align-items:center; justify-content:center; min-height:100vh; margin:0; background:#f6f8fa; }
-    .card { background:#fff; padding:2rem; border-radius:8px; box-shadow:0 4px 14px rgba(0,0,0,0.08); max-width:520px; text-align:center; }
-    .ip { font-size:2rem; font-weight:700; margin-top:1rem; color:#0b5; }
-    .hint { margin-top:0.5rem; color:#666; font-size:0.9rem; }
-    button { margin-top:1rem; padding:0.5rem 1rem; border:none; background:#0366d6; color:#fff; border-radius:6px; cursor:pointer; }
-    button:active{ transform:translateY(1px); }
+    :root{--accent:#2b8ccd}
+    body{font-family: "Noto Sans JP", system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", sans-serif;margin:0;background:linear-gradient(180deg,#0f1724 0%,#071028 100%);color:#e6eef8}
+    header{padding:3rem 1rem;text-align:center}
+    .container{max-width:960px;margin:0 auto;padding:1rem}
+    .card{background:rgba(255,255,255,0.04);border-radius:12px;padding:1.25rem;margin-bottom:1rem}
+    h1{margin:0;font-size:2rem}
+    .lead{color:#cfe7ff;margin-top:.5rem}
+    .grid{display:grid;grid-template-columns:1fr;gap:1rem}
+    .btn{display:inline-block;background:var(--accent);color:#fff;padding:.6rem 1rem;border-radius:8px;text-decoration:none}
+    footer{padding:2rem 1rem;text-align:center;color:#9fb7d6}
+    pre.ip{background:#061220;padding:.5rem;border-radius:6px;color:#9ff;font-family:monospace}
+    ul.features{margin:0;padding-left:1.2rem}
+    @media(min-width:720px){.grid{grid-template-columns:2fr 1fr}}
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>テストサイト：IPアドレス表示</h1>
-    <div id="ip" class="ip">読み込み中…</div>
-    <div class="hint">このページにアクセスしている端末の公開IPアドレスを表示します。</div>
-    <button id="reload">再取得</button>
-  </div>
+  <header>
+    <div class="container">
+      <h1>サバイバル生活鯖</h1>
+      <div class="lead">ゆったり遊べる、仲間と作る生活サーバー。初心者歓迎！</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card grid">
+      <div>
+        <h2>サーバー情報</h2>
+        <p>接続情報はDiscordにて配布しています。招待リンクから参加して案内をご確認ください。</p>
+        <p>対応バージョン: <span id="srv-ver">1.20.10</span></p>
+        <p><a class="btn" id="join-btn" href="https://discord.gg/Fmmh3Wfs7M" target="_blank" rel="noopener">Discordで参加・確認</a></p>
+      </div>
+
+      <aside>
+        <h3>特徴</h3>
+        <ul class="features">
+          <li>経済・土地保護なしのゆったりサバイバル</li>
+          <li>仲間と建築・農業を楽しめるコミュニティ</li>
+          <li>Discordでサポート・交流あり</li>
+        </ul>
+        <h3 style="margin-top:1rem">ルール（抜粋）</h3>
+        <ul class="features">
+          <li>過度な妨害行為は禁止</li>
+          <li>他プレイヤーへの迷惑行為禁止</li>
+          <li>チート・不正は禁止</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="card">
+      <h2>参加方法</h2>
+      <ol>
+        <li>Minecraft を起動し、対応バージョンに合わせる（1.20.10）。</li>
+        <li>接続情報はDiscordで配布しています。Discordの案内に従ってください。</li>
+        <li>接続できない場合はDiscordで問い合わせてください。</li>
+      </ol>
+      <p>Discord: <a href="https://discord.gg/Fmmh3Wfs7M" id="discord-link" target="_blank" rel="noopener">https://discord.gg/Fmmh3Wfs7M</a></p>
+    </section>
+
+    <section class="card">
+      <h2>管理者メッセージ</h2>
+      <p id="intro">ルールはDiscordに記載しています。参加後に案内を確認してください。</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">このページは仮のテンプレートです。表示内容を教えてください。</div>
+  </footer>
 
   <script>
-    async function fetchIP() {
-      const el = document.getElementById('ip');
-      el.textContent = '読み込み中…';
-      try {
-        // api.ipify.org を使って公開IPを取得
-        const resp = await fetch('https://api.ipify.org?format=json');
-        if (!resp.ok) throw new Error('APIエラー');
-        const data = await resp.json();
-        el.textContent = data.ip || '取得できませんでした';
-      } catch (err) {
-        // フォールバックサービスを試す
-        try {
-          const resp2 = await fetch('https://ifconfig.co/json');
-          const d2 = await resp2.json();
-          el.textContent = d2.ip || '取得できませんでした';
-        } catch (err2) {
-          el.textContent = '取得に失敗しました';
-          console.error(err, err2);
-        }
-      }
-    }
-
-    document.getElementById('reload').addEventListener('click', fetchIP);
-    fetchIP();
+    // プレースホルダ。必要な情報を受け取ったらここを置き換えます。
+    document.getElementById('join-btn').addEventListener('click', function(e){e.preventDefault();alert('サーバーIPをMinecraftに入力して参加してください。')});
   </script>
 </body>
 </html>
