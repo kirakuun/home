@@ -3,79 +3,171 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>サーバー紹介 - サバイバル生活鯖</title>
+  <title>サバイバル生活鯖</title>
   <style>
-    :root{--accent:#2b8ccd}
-    body{font-family: "Noto Sans JP", system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", sans-serif;margin:0;background:linear-gradient(180deg,#0f1724 0%,#071028 100%);color:#e6eef8}
-    header{padding:3rem 1rem;text-align:center}
-    .container{max-width:960px;margin:0 auto;padding:1rem}
-    .card{background:rgba(255,255,255,0.04);border-radius:12px;padding:1.25rem;margin-bottom:1rem}
-    h1{margin:0;font-size:2rem}
-    .lead{color:#cfe7ff;margin-top:.5rem}
-    .grid{display:grid;grid-template-columns:1fr;gap:1rem}
-    .btn{display:inline-block;background:var(--accent);color:#fff;padding:.6rem 1rem;border-radius:8px;text-decoration:none}
-    footer{padding:2rem 1rem;text-align:center;color:#9fb7d6}
-    pre.ip{background:#061220;padding:.5rem;border-radius:6px;color:#9ff;font-family:monospace}
-    ul.features{margin:0;padding-left:1.2rem}
-    @media(min-width:720px){.grid{grid-template-columns:2fr 1fr}}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: "Noto Sans JP", system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+    header {
+      background: rgba(0,0,0,0.3);
+      padding: 3rem 1rem;
+      text-align: center;
+      border-bottom: 2px solid #2b8ccd;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #2b8ccd;
+      margin-bottom: 0.5rem;
+    }
+    .subtitle {
+      font-size: 1.1rem;
+      color: #b0b0b0;
+    }
+    main {
+      padding: 2rem 0;
+    }
+    section {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(43,140,205,0.3);
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(10px);
+    }
+    section h2 {
+      color: #2b8ccd;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    .btn {
+      display: inline-block;
+      background: #2b8ccd;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      margin-top: 1rem;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #1e6a9f;
+    }
+    ul, ol {
+      margin-left: 1.5rem;
+      margin-top: 1rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+    a {
+      color: #2b8ccd;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      background: rgba(0,0,0,0.3);
+      padding: 2rem 1rem;
+      text-align: center;
+      color: #888;
+      border-top: 1px solid rgba(43,140,205,0.2);
+    }
+    .info-box {
+      background: rgba(43,140,205,0.1);
+      border-left: 4px solid #2b8ccd;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-radius: 4px;
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
       <h1>サバイバル生活鯖</h1>
-      <div class="lead">ゆったり遊べる、仲間と作る生活サーバー。初心者歓迎！</div>
+      <p class="subtitle">ゆったり遊べる、仲間と作る生活サーバー</p>
     </div>
   </header>
 
   <main class="container">
-    <section class="card grid">
-      <div>
-        <h2>サーバー情報</h2>
-        <p>接続情報はDiscordにて配布しています。招待リンクから参加して案内をご確認ください。</p>
-        <p>対応バージョン: <span id="srv-ver">1.20.10</span></p>
-        <p><a class="btn" id="join-btn" href="https://discord.gg/Fmmh3Wfs7M" target="_blank" rel="noopener">Discordで参加・確認</a></p>
-      </div>
-
-      <aside>
-        <h3>特徴</h3>
-        <ul class="features">
-          <li>経済・土地保護なしのゆったりサバイバル</li>
-          <li>仲間と建築・農業を楽しめるコミュニティ</li>
-          <li>Discordでサポート・交流あり</li>
-        </ul>
-        <h3 style="margin-top:1rem">ルール（抜粋）</h3>
-        <ul class="features">
-          <li>過度な妨害行為は禁止</li>
-          <li>他プレイヤーへの迷惑行為禁止</li>
-          <li>チート・不正は禁止</li>
-        </ul>
-      </aside>
+    <section>
+      <h2>サーバーについて</h2>
+      <p>このサーバーは、経済や土地保護などの複雑なシステムなしで、ゆったりとしたサバイバル生活を楽しむコミュニティです。仲間と一緒に建築したり、農業をしたり、自由に遊べます。</p>
+      <p style="margin-top: 1rem;">初心者さんも大歓迎です！わからないことがあればDiscordで気軽に聞いてください。</p>
     </section>
 
-    <section class="card">
+    <section>
+      <h2>サーバー情報</h2>
+      <ul>
+        <li><strong>対応バージョン:</strong> 1.20.10</li>
+        <li><strong>ゲームモード:</strong> サバイバル</li>
+        <li><strong>難易度:</strong> ノーマル</li>
+        <li><strong>接続情報:</strong> Discordで配布しています</li>
+      </ul>
+      <div class="info-box">
+        <strong>注意:</strong> サーバーへの接続にはDiscordでの確認が必須です。下のボタンからDiscordサーバーに参加してください。
+      </div>
+    </section>
+
+    <section>
+      <h2>サーバーの特徴</h2>
+      <ul>
+        <li>経済・土地保護なしのシンプルなサバイバル</li>
+        <li>プレイヤー同士で自由に協力できる環境</li>
+        <li>Discordコミュニティによるサポートと交流</li>
+        <li>楽しむことを最優先にしたルール設定</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>ルール</h2>
+      <ul>
+        <li>他のプレイヤーへの迷惑行為は禁止</li>
+        <li>チート・不正行為は禁止</li>
+        <li>建築物の無断破壊は禁止</li>
+        <li>プレイヤー同士でトラブルが生じたときはDiscordで相談してください</li>
+      </ul>
+      <p style="margin-top: 1rem; color: #aaa; font-size: 0.9rem;">詳細なルールはDiscordサーバーで確認できます。</p>
+    </section>
+
+    <section>
       <h2>参加方法</h2>
       <ol>
-        <li>Minecraft を起動し、対応バージョンに合わせる（1.20.10）。</li>
-        <li>接続情報はDiscordで配布しています。Discordの案内に従ってください。</li>
-        <li>接続できない場合はDiscordで問い合わせてください。</li>
+        <li>下のボタンからDiscordサーバーに参加</li>
+        <li>案内チャンネルでサーバー接続情報を確認</li>
+        <li>Minecraftを起動して、接続情報を入力して参加</li>
+        <li>わからないことはDiscordで聞いてOK！</li>
       </ol>
-      <p>Discord: <a href="https://discord.gg/Fmmh3Wfs7M" id="discord-link" target="_blank" rel="noopener">https://discord.gg/Fmmh3Wfs7M</a></p>
+      <a href="https://discord.gg/Fmmh3Wfs7M" target="_blank" rel="noopener" class="btn">🔗 Discordサーバーに参加</a>
     </section>
 
-    <section class="card">
-      <h2>管理者メッセージ</h2>
-      <p id="intro">ルールはDiscordに記載しています。参加後に案内を確認してください。</p>
+    <section>
+      <h2>よくある質問</h2>
+      <p><strong>Q: 初心者なのですが参加できますか？</strong></p>
+      <p>A: もちろんです！初心者さんが大半です。わからないことがあればDiscordで聞いてください。</p>
+      
+      <p style="margin-top: 1rem;"><strong>Q: 参加するのに何か必要ですか？</strong></p>
+      <p>A: Minecraftと、Discordのアカウントがあれば大丈夫です。</p>
+
+      <p style="margin-top: 1rem;"><strong>Q: 接続できないときはどうすればいいですか？</strong></p>
+      <p>A: Discordのサポートチャンネルで報告してください。対応します。</p>
     </section>
   </main>
 
   <footer>
-    <div class="container">このページは仮のテンプレートです。表示内容を教えてください。</div>
+    <div class="container">
+      <p>&copy; 2025 サバイバル生活鯖 | <a href="https://discord.gg/Fmmh3Wfs7M">Discord</a></p>
+    </div>
   </footer>
-
-  <script>
-    // プレースホルダ。必要な情報を受け取ったらここを置き換えます。
-    document.getElementById('join-btn').addEventListener('click', function(e){e.preventDefault();alert('サーバーIPをMinecraftに入力して参加してください。')});
-  </script>
 </body>
 </html>
